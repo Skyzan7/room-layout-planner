@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Room Layout Planner</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <h1>Event Room Layout Planner</h1>
+        <div class="header-controls">
+            <button id="clearBtn">Clear All</button>
+            <button id="exportBtn">Export PNG</button>
+        </div>
+    </header>
+
+    <div class="app">
+        <div class="sidebar">
+            <h2>Furniture</h2>
+            <div class="furniture-list">
+                <div class="furniture-item" draggable="true" data-type="round-table" data-w="80" data-h="80">
+                    <div class="furniture-preview round-table"></div> Round Table
+                </div>
+                <div class="furniture-item" draggable="true" data-type="rect-table" data-w="120" data-h="60">
+                    <div class="furniture-preview rect-table"></div> Rect Table
+                </div>
+                <div class="furniture-item" draggable="true" data-type="chair" data-w="36" data-h="36">
+                    <div class="furniture-preview chair"></div> Chair
+                </div>
+                <div class="furniture-item" draggable="true" data-type="sofa" data-w="120" data-h="50">
+                    <div class="furniture-preview sofa"></div> Sofa
+                </div>
+                <div class="furniture-item" draggable="true" data-type="stage" data-w="200" data-h="80">
+                    <div class="furniture-preview stage"></div> Stage
+                </div>
+                <div class="furniture-item" draggable="true" data-type="bar" data-w="160" data-h="50">
+                    <div class="furniture-preview bar"></div> Bar Counter
+                </div>
+                <div class="furniture-item" draggable="true" data-type="plant" data-w="40" data-h="40">
+                    <div class="furniture-preview plant"></div> Plant
+                </div>
+                <div class="furniture-item" draggable="true" data-type="dj-booth" data-w="100" data-h="60">
+                    <div class="furniture-preview dj-booth"></div> DJ Booth
+                </div>
+            </div>
+
+            <h2>Room Size</h2>
+            <div class="room-controls">
+                <label>Width (px) <input type="number" id="roomWidth" value="800" min="400" max="1400" /></label>
+                <label>Height (px) <input type="number" id="roomHeight" value="600" min="300" max="1000" /></label>
+                <button id="applyRoom">Apply</button>
+            </div>
+
+            <h2>Selected Item</h2>
+            <div class="item-controls" id="itemControls">
+                <div id="noSelection">No item selected</div>
+                <div id="selectionPanel" style="display:none">
+                    <label>Label <input type="text" id="itemLabel" /></label>
+                    <label>Rotate <input type="number" id="itemRotate" value="0" step="15" /> °</label>
+                    <label>Color <input type="color" id="itemColor" value="#6c8ebf" /></label>
+                    <button id="deleteItem">Delete</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="canvas-wrapper">
+            <div id="room" class="room">
+                <div class="grid-overlay"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
